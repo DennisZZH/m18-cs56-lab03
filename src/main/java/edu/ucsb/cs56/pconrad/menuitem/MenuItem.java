@@ -53,19 +53,19 @@ public class MenuItem {
      */
 
     public String getPrice(int width) {
-		Integer integerPrice = new Integer(priceInCents);
-        int length = (integerPrice.toString()).length();
+	Integer integerPrice = new Integer(priceInCents);
+	int length = (integerPrice.toString()).length();
         String stringPrice = "";
 
         if(width < length){
-            throw new TooNarrowException("width is too narrow");
+            throw new TooNarrowException();
         }
 
-        for(int i = 0, i < width - length, i++){
+        for(int i = 0; i < width-length-2; i++){
             stringPrice += " ";
         }
 
-        stringPrice += integerPrice.toString();
+        stringPrice += this.getPrice();
 
         return stringPrice;
 
