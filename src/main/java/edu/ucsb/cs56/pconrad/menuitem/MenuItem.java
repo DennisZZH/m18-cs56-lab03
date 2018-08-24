@@ -15,7 +15,21 @@ public class MenuItem {
 
 
     public MenuItem(String name, int priceInCents, String category) {
-		// stub
+		this.name = name;
+        this.priceInCents = priceInCents;
+        this.category = category;
+    }
+
+    public String getCategory(){
+        return this.category;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public int getPriceInCents(){
+        return this.priceInCents;
     }
 
     /**
@@ -24,7 +38,7 @@ public class MenuItem {
      */
 
     public String getPrice() {
-		return "stub";
+		return "$" + priceInCents/100 + "." + priceInCents%100;
     }
 	
     /**
@@ -50,7 +64,7 @@ public class MenuItem {
 
     @Override
     public String toString() {
-		return "stub";
+		return this.name + "," + priceInCents + "," + this.category;
     }
 
 }
