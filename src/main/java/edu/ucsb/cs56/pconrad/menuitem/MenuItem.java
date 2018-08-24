@@ -57,7 +57,7 @@ public class MenuItem {
 	int length = (integerPrice.toString()).length();
         String stringPrice = "";
 
-        if(width < length){
+        if(width < length + 2){
             throw new TooNarrowException();
         }
 

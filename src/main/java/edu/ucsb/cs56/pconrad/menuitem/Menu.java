@@ -1,5 +1,7 @@
 package edu.ucsb.cs56.pconrad.menuitem;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Menu {
 	
@@ -10,17 +12,17 @@ public class Menu {
     }
 
     public void add(MenuItem mi) {
-	menuitems.add(mi);
+	   menuitems.add(mi);
     }
 
     public String csv() {
         String result = "";
 
-	for(MenuItem i in menuitems){
-	    result = i.toString() + "/n";
-	}
-
-	return result;
+    	for(int i = 0; i < menuitems.size(); i++){
+    	    result = result + (menuitems.get(i)).toString() + "\n";
+    	}
+	    
+        return result;
     }
 
 
@@ -29,7 +31,15 @@ public class Menu {
     }
 
     public String csvSortedByName() {
-        return "stub";
+        Collections.sort(menuitems, (o1,o2) -> (o1.getName()).compareTo(o2.getName()) );
+        
+        String result = "";
+
+        for(int i = 0; i < menuitems.size(); i++){
+            result = result + (menuitems.get(i)).toString() + "\n";
+        }
+        
+        return result;
     }
 
     public String csvSortedByCategoryThenName() {
