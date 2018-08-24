@@ -53,7 +53,22 @@ public class MenuItem {
      */
 
     public String getPrice(int width) {
-		return "stub";
+		Integer integerPrice = new Integer(priceInCents);
+        int length = (integerPrice.toString()).length();
+        String stringPrice = "";
+
+        if(width < length){
+            throw new TooNarrowException("width is too narrow");
+        }
+
+        for(int i = 0, i < width - length, i++){
+            stringPrice += " ";
+        }
+
+        stringPrice += integerPrice.toString();
+
+        return stringPrice;
+
     }
 
     /**
