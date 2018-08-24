@@ -10,11 +10,17 @@ public class Menu {
     }
 
     public void add(MenuItem mi) {
-		// stub
+	menuitems.add(mi);
     }
 
     public String csv() {
-        return "stub";
+        String result = "";
+
+	for(MenuItem i in menuitems){
+	    result = i.toString() + "/n";
+	}
+
+	return result;
     }
 
 
