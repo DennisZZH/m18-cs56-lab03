@@ -64,7 +64,7 @@ public class Menu {
 
 
     public String csvSortedByCategoryThenName() {
-<span class="pc" id="L67">         Comparator&lt;MenuItem&gt; byCategoryThenName = new Comparator&lt;MenuItem&gt;(){</span>
+<span class="fc" id="L67">         Comparator&lt;MenuItem&gt; byCategoryThenName = new Comparator&lt;MenuItem&gt;(){</span>
        		public int compare(MenuItem m1, MenuItem m2){
 <span class="fc bfc" id="L69" title="All 2 branches covered.">       			if (m1.getCategory() == m2.getCategory()){</span>
 <span class="fc" id="L70">       				return m1.getName().compareTo(m2.getName());</span>
@@ -74,15 +74,15 @@ public class Menu {
        		}
        };
 
-<span class="nc" id="L77">       Collections.sort(menuitems, byCategoryThenName);</span>
+<span class="fc" id="L77">       Collections.sort(menuitems, byCategoryThenName);</span>
 
-<span class="nc" id="L79">       String result = &quot;&quot;;</span>
+<span class="fc" id="L79">       String result = &quot;&quot;;</span>
 
-<span class="nc bnc" id="L81" title="All 2 branches missed.">        for(int i = 0; i &lt; menuitems.size(); i++){</span>
-<span class="nc" id="L82">            result = result + (menuitems.get(i)).toString() + &quot;\n&quot;;</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        for(int i = 0; i &lt; menuitems.size(); i++){</span>
+<span class="fc" id="L82">            result = result + (menuitems.get(i)).toString() + &quot;\n&quot;;</span>
         }
         
-<span class="nc" id="L85">        return result;</span>
+<span class="fc" id="L85">        return result;</span>
      }
 
     

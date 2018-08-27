@@ -61,6 +61,20 @@ public class MenuTest {
     }
 
 
+@Test
+    public void csvSortedByCategoryThenName() {
+        String expected =
+                "Boba Tea,249,Beverage" + nl +
+                        "Green Tea,149,Beverage" + nl +
+                        "Milk Tea,249,Beverage" + nl +
+                        "Large Poke Bowl,1449,Poke Bowls" + nl +
+                        "Medium Poke Bowl,1249,Poke Bowls" + nl +
+                        "Small Poke Bowl,1049,Poke Bowls" + nl +
+                        "";
+        assertEquals(expected,m.csvSortedByCategoryThenName());
+    }
+    
+
     @Test
     public void test_csvSortedByCategoryThenPriceDescendingThenByName() {
         String expected =
@@ -75,7 +89,7 @@ public class MenuTest {
     }
 
 
-    
+
 
 
 
