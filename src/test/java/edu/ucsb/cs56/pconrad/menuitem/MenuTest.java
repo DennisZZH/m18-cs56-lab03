@@ -34,30 +34,49 @@ public class MenuTest {
         assertEquals(expected,m.csv());
     }
 
-	// @Test
- //    public void test_csvSortedByName() {
- //        String expected =
- //                "Boba Tea,249,Beverage" + nl +
- //                        "Green Tea,149,Beverage" + nl +
- //                        "Large Poke Bowl,1449,Poke Bowls" + nl +
- //                        "Medium Poke Bowl,1249,Poke Bowls" + nl +
- //                        "Milk Tea,249,Beverage" + nl +
- //                        "Small Poke Bowl,1049,Poke Bowls" + nl +
- //                        "";
- //        assertEquals(expected,m.csvSortedByName());
- //    }
+	@Test
+    public void test_csvSortedByName() {
+        String expected =
+                "Boba Tea,249,Beverage" + nl +
+                        "Green Tea,149,Beverage" + nl +
+                        "Large Poke Bowl,1449,Poke Bowls" + nl +
+                        "Medium Poke Bowl,1249,Poke Bowls" + nl +
+                        "Milk Tea,249,Beverage" + nl +
+                        "Small Poke Bowl,1049,Poke Bowls" + nl +
+                        "";
+        assertEquals(expected,m.csvSortedByName());
+    }
 
- //    @Test
- //    public void test_csvSortedByPriceThenName() {
- //        String expected =
- //                "Green Tea,149,Beverage" + nl +
- //                        "Boba Tea,249,Beverage" + nl +
- //                        "Milk Tea,249,Beverage" + nl +
- //                        "Small Poke Bowl,1049,Poke Bowls" + nl +
- //                        "Medium Poke Bowl,1249,Poke Bowls" + nl +
- //                        "Large Poke Bowl,1449,Poke Bowls" + nl +
- //                        "";
- //        assertEquals(expected,m.csvSortedByPriceThenName());
- //    }
+    @Test
+    public void test_csvSortedByPriceThenName() {
+        String expected =
+                "Green Tea,149,Beverage" + nl +
+                        "Boba Tea,249,Beverage" + nl +
+                        "Milk Tea,249,Beverage" + nl +
+                        "Small Poke Bowl,1049,Poke Bowls" + nl +
+                        "Medium Poke Bowl,1249,Poke Bowls" + nl +
+                        "Large Poke Bowl,1449,Poke Bowls" + nl +
+                        "";
+        assertEquals(expected,m.csvSortedByPriceThenName());
+    }
+
+
+    @Test
+    public void test_csvSortedByCategoryThenPriceDescendingThenByName() {
+        String expected =
+                "Boba Tea,249,Beverage" + nl +
+                        "Milk Tea,249,Beverage" + nl +
+                        "Green Tea,149,Beverage" + nl +
+                        "Large Poke Bowl,1449,Poke Bowls" + nl +
+                        "Medium Poke Bowl,1249,Poke Bowls" + nl +
+                       "Small Poke Bowl,1049,Poke Bowls" + nl +
+                        "";
+        assertEquals(expected,m.csvSortedByCategoryThenPriceDescendingThenByName());
+    }
+
+
+    
+
+
 
 }
