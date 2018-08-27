@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Menu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">menuitem</a> &gt; <a href="index.source.html" class="el_package">edu.ucsb.cs56.pconrad.menuitem</a> &gt; <span class="el_source">Menu.java</span></div><h1>Menu.java</h1><pre class="source lang-java linenums">package edu.ucsb.cs56.pconrad.menuitem;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+public class Menu {
+	
+    private ArrayList&lt;MenuItem&gt; menuitems;
+
+<span class="fc" id="L10">    public Menu() {</span>
+<span class="fc" id="L11">        menuitems = new ArrayList&lt;MenuItem&gt;();</span>
+<span class="fc" id="L12">    }</span>
+
+    public void add(MenuItem mi) {
+<span class="fc" id="L15">	   menuitems.add(mi);</span>
+<span class="fc" id="L16">    }</span>
+
+    public String csv() {
+<span class="fc" id="L19">        String result = &quot;&quot;;</span>
+
+<span class="fc bfc" id="L21" title="All 2 branches covered.">    	for(int i = 0; i &lt; menuitems.size(); i++){</span>
+<span class="fc" id="L22">    	    result = result + (menuitems.get(i)).toString() + &quot;\n&quot;;</span>
+    	}
+	    
+<span class="fc" id="L25">        return result;</span>
+    }
+
+
+    public String csvSortedByPriceThenName() {
+       
+<span class="fc" id="L31">       Comparator&lt;MenuItem&gt; byPriceThenName = new Comparator&lt;MenuItem&gt;(){</span>
+       		public int compare(MenuItem m1, MenuItem m2){
+<span class="fc bfc" id="L33" title="All 2 branches covered.">       			if (m1.getPriceInCents() == m2.getPriceInCents()){</span>
+<span class="fc" id="L34">       				return m1.getName().compareTo(m2.getName());</span>
+       			}else{
+<span class="fc" id="L36">       				return m1.getPriceInCents() - m2.getPriceInCents();</span>
+       			}
+       		}
+       };
+
+<span class="fc" id="L41">       Collections.sort(menuitems, byPriceThenName);</span>
+
+<span class="fc" id="L43">       String result = &quot;&quot;;</span>
+
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        for(int i = 0; i &lt; menuitems.size(); i++){</span>
+<span class="fc" id="L46">            result = result + (menuitems.get(i)).toString() + &quot;\n&quot;;</span>
+        }
+        
+<span class="fc" id="L49">        return result;</span>
+    }
+
+
+    public String csvSortedByName() {
+<span class="fc" id="L54">        Collections.sort(menuitems, (o1,o2) -&gt; (o1.getName()).compareTo(o2.getName()) );</span>
+        
+<span class="fc" id="L56">        String result = &quot;&quot;;</span>
+
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        for(int i = 0; i &lt; menuitems.size(); i++){</span>
+<span class="fc" id="L59">            result = result + (menuitems.get(i)).toString() + &quot;\n&quot;;</span>
+        }
+        
+<span class="fc" id="L62">        return result;</span>
+    }
+
+
+    public String csvSortedByCategoryThenName() {
+<span class="pc" id="L67">         Comparator&lt;MenuItem&gt; byCategoryThenName = new Comparator&lt;MenuItem&gt;(){</span>
+       		public int compare(MenuItem m1, MenuItem m2){
+<span class="fc bfc" id="L69" title="All 2 branches covered.">       			if (m1.getCategory() == m2.getCategory()){</span>
+<span class="fc" id="L70">       				return m1.getName().compareTo(m2.getName());</span>
+       			}else{
+<span class="fc" id="L72">       				return m1.getCategory().compareTo(m2.getCategory());</span>
+       			}
+       		}
+       };
+
+<span class="nc" id="L77">       Collections.sort(menuitems, byCategoryThenName);</span>
+
+<span class="nc" id="L79">       String result = &quot;&quot;;</span>
+
+<span class="nc bnc" id="L81" title="All 2 branches missed.">        for(int i = 0; i &lt; menuitems.size(); i++){</span>
+<span class="nc" id="L82">            result = result + (menuitems.get(i)).toString() + &quot;\n&quot;;</span>
+        }
+        
+<span class="nc" id="L85">        return result;</span>
+     }
+
+    
+
+    public String csvSortedByCategoryThenPriceDescendingThenByName() {
+		
+<span class="fc" id="L92">		Comparator&lt;MenuItem&gt; byCategoryThenPriceDescendingThenName = new Comparator&lt;MenuItem&gt;(){</span>
+		       		public int compare(MenuItem m1, MenuItem m2){
+<span class="fc bfc" id="L94" title="All 2 branches covered.">		       			if (m1.getCategory() == m2.getCategory()){</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">		       				if(m1.getPriceInCents() == m2.getPriceInCents()){</span>
+<span class="fc" id="L96">		       					return m1.getName().compareTo(m2.getName());</span>
+		       				}else{
+<span class="fc" id="L98">		       					return m2.getPriceInCents() - m1.getPriceInCents();</span>
+		       				}
+		       			}else{
+<span class="fc" id="L101">		       				return m1.getCategory().compareTo(m2.getCategory());		       			}	</span>
+		       		}
+		       };
+
+<span class="fc" id="L105">		       Collections.sort(menuitems, byCategoryThenPriceDescendingThenName);</span>
+
+<span class="fc" id="L107">		       String result = &quot;&quot;;</span>
+
+<span class="fc bfc" id="L109" title="All 2 branches covered.">		        for(int i = 0; i &lt; menuitems.size(); i++){</span>
+<span class="fc" id="L110">		            result = result + (menuitems.get(i)).toString() + &quot;\n&quot;;</span>
+		        }
+		        
+<span class="fc" id="L113">		        return result;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
